@@ -14,12 +14,116 @@ html {
  * Global layout stuff
  */
 
+nav {
+  font-family: 'Bungee', cursive;
+}
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+main.container{
+  width: 1000px;
+  background-color: #f4f1ec;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main .tweet-container {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+}
+
+
+main .tweet-container article {
+  height: 290px;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #545149; 
+  background-color: #f4f1ec;
+}
+
+.tweet-header {
+  height: 40%;
+  background-color: #f4f1ec;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.avatar-name {
+  display: flex;
+  flex-direction: row;
+  padding-left: 30px;
+  padding-top: 10px;
+  color: #545149;
+}
+
+.avatar-name p {
+  padding-left: 20px;
+}
+
+
+.twitter-user {
+  padding-right: 30px;
+  padding-top: 10px;
+  color: #A9A9A9;
+}
+
+.twitter-user p{
+  visibility: hidden;
+}
+
+article:hover header .twitter-user p{
+  visibility: visible;
+}
+
+article:hover {
+  box-shadow: 5px 10px rgb(155, 154, 154);
+}
+
+article p {
+  padding-left: 30px;
+}
+
+article footer {
+  display: flex;
+  flex-direction: row;
+  line-height: 0.1;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 3px solid #545149;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.tweet-time {
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.tweet-time p {
+  padding-left: 0px;
+}
+
+.tweet-icons {
+  padding-top: 10px;
+  padding-right: 30px;
+}
+
+.tweet-icons .fas {
+  color: #545149;
+  padding-left: 4px;
+}
+
