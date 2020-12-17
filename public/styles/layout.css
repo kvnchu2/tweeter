@@ -54,6 +54,10 @@ main .tweet-container article {
   background-color: #f4f1ec;
 }
 
+.tweet-article {
+  margin-top: 20px;
+}
+
 .tweet-header {
   height: 40%;
   background-color: #f4f1ec;
