@@ -1,6 +1,7 @@
 .new-tweet {
   display: flex;
   flex-direction: column;
+  width: 84%
 }
 
 .display-hidden{
@@ -8,7 +9,7 @@
 }
 
 .display-visible{
-  width: 1000px;
+  width: 100%;
   height: 100px;
   display:flex;
   flex-direction: row;
@@ -38,7 +39,7 @@ button:hover{
 }
 
 #tweet-text {
-  width: 1000px;
+  width: 100%;
   border-width: 0 0 3px 0;
   outline: none;
   background-color: #f4f1ec;

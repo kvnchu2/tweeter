@@ -21,7 +21,7 @@ $(document).ready(()=> {
     $lengthOfText = $text.length;
 
     if ($text === '' || $text === null) {
-      $( ".display-hidden" ).slideDown( "slow" );
+      $(".display-hidden").slideDown( "slow" );
       $(".error").text("Please enter a tweet!");
     } else if ($lengthOfText > 140) {
       $( ".display-hidden" ).slideDown( "slow" );

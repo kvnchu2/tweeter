@@ -22,6 +22,7 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+  padding-top: 120px;
 }
 
 /*
@@ -29,7 +30,7 @@ body {
  */
 
 main.container{
-  width: 1000px;
+  width: 100%;
   background-color: #f4f1ec;
   display: flex;
   flex-direction: column;
@@ -42,12 +43,11 @@ main.container{
 main .tweet-container {
   display: flex;
   flex-direction: column;
-  width: 1000px;
+  width: 84%;
 }
 
 
 main .tweet-container article {
-  height: 290px;
   display: flex;
   flex-direction: column;
   border: 3px solid #545149; 
@@ -59,7 +59,7 @@ main .tweet-container article {
 }
 
 .tweet-header {
-  height: 40%;
+  height: 70%;
   background-color: #f4f1ec;
   display: flex;
   flex-direction: row;
@@ -131,3 +131,14 @@ article footer {
   padding-left: 4px;
 }
 
+
+@media only screen and (min-width: 1024px) {
+  main.container {
+    width: 60%;
+    float: right;
+  }
+  body {
+    display: flex;
+  }
+
+}

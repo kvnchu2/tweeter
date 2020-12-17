@@ -9,7 +9,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
 
-  position: sticky;
+  position: fixed;
   top: 0;
 }
 
@@ -31,4 +31,12 @@ nav {
 .fas {
   color: red;
   align-items: center;
+}
+
+
+@media only screen and (min-width: 1024px) {
+  nav {
+  background-color: #545149;
+  background-image: none;
+  }
 }
