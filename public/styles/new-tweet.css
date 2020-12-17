@@ -3,6 +3,22 @@
   flex-direction: column;
 }
 
+.display-hidden{
+  display:none;
+}
+
+.display-visible{
+  width: 1000px;
+  height: 100px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 6px solid red;
+  color: red;
+  margin-top: 30px;
+}
+
 #tweet-form {
   display: flex;
   flex-direction: column;
@@ -30,6 +46,10 @@ button:hover{
   font-weight: bold;
   font-size: 20px;
   color: #545149;
+}
+
+.tweet-message {
+  word-wrap: break-word;
 }
 
 .counter {

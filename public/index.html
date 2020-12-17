@@ -60,6 +60,13 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <div class="display-hidden">
+          <div class="display-visible">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p class="error">error</p>
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+        </div>
         <form id = tweet-form action=/tweets/ method=POST>
           <label for="tweet-text" id = tweet-text-label>What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
