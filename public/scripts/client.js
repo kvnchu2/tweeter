@@ -57,26 +57,28 @@ $(document).ready(()=> {
   $('form').on('submit', function (event) {
     event.preventDefault();
   
-    //obtains value of input v
+    //obtains input of textfield
     $textfield = $(this).closest("form").find("#tweet-text");
+    //obtains counter
     $counter = $(this).closest("form").find(".counter");
+    //encodes textfield for post request
     $textdata = $textfield.serialize();
+    //reduces textfield to just the string itself and gets length of characters
     $text = $textfield.val().trim();
-  
     $lengthOfText = $text.length;
-  
+    
+    //if no characters written, or number of characters exceeds limit, error message. otherwise, tweet is rendered and sent
     if ($text === '' || $text === null) {
       $(".display-hidden").slideDown( "slow" );
       $(".error").text("Please enter a tweet!");
     } else if ($lengthOfText > 140) {
-      $( ".display-hidden" ).slideDown( "slow" );
+      $(".display-hidden").slideDown( "slow" );
       $(".error").text("Your tweet exceeded character limit!");
     } else {
   
       $(".display-hidden").hide();
       $.post("/tweets/", $textdata)
         .then(() => {
-          console.log('asdf')
           loadTweets();
         });
   
