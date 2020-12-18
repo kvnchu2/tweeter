@@ -136,9 +136,12 @@ article footer {
   main.container {
     width: 60%;
     float: right;
+    margin-right: 10px;
+    margin-left: 120px;
   }
   body {
     display: flex;
+    justify-content: space-around;
   }
 
 }

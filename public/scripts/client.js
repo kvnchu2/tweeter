@@ -27,11 +27,16 @@ $(document).ready(()=> {
       $( ".display-hidden" ).slideDown( "slow" );
       $(".error").text("Your tweet exceeded character limit!");
     } else {
+
       $(".display-hidden").hide();
       $.post("/tweets/", $textdata)
         .done(function () {
           loadTweets();
         });
+
+      $textfield.val('');
+      $counter.text(140);
+
     }
   });
 
