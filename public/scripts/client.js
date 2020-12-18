@@ -1,55 +1,12 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-// Test / driver code (temporary). Eventually will get this from the server.
+//function that requests for tweets 
+const loadTweets = () => {
+  $.getJSON("/tweets")
+    .done(function (tweets) {
+      renderTweets(tweets);
+    });
+};
 
-
-
-// Test / driver code (temporary). Eventually will get this from the server.
-$(document).ready(()=> {
-  
-  $("#tweet-button").on('click', function (event) {
-    event.preventDefault();
-    
-    $textfield = $(this).closest("form").find("#tweet-text");
-    $counter = $(this).closest("form").find(".counter");
-    $textdata = $textfield.serialize();
-    $text = $textfield.val().trim();
-
-    $lengthOfText = $text.length;
-
-    if ($text === '' || $text === null) {
-      $(".display-hidden").slideDown( "slow" );
-      $(".error").text("Please enter a tweet!");
-    } else if ($lengthOfText > 140) {
-      $( ".display-hidden" ).slideDown( "slow" );
-      $(".error").text("Your tweet exceeded character limit!");
-    } else {
-
-      $(".display-hidden").hide();
-      $.post("/tweets/", $textdata)
-        .done(function () {
-          loadTweets();
-        });
-
-      $textfield.val('');
-      $counter.text(140);
-
-    }
-  });
-
-  const loadTweets = () => {
-    $.getJSON("/tweets")
-      .done(function (tweets) {
-        renderTweets(tweets);
-      });
-  };
-
-  loadTweets();
-});
-
+//adds html with information from tweet
 const createTweetElement = function(tweet) {
   const currentTime = new Date();
   const dateOfTweet = new Date(parseInt(tweet.created_at))
@@ -83,16 +40,52 @@ const createTweetElement = function(tweet) {
   </article>`
 }
 
-  const renderTweets = function(tweets) {
-    // loops through tweets
-    $('.tweet-container').empty();
-    for (let x = tweets.length - 1; x >= 0; x--) {
-      
-      const $tweet = createTweetElement(tweets[x]);
-      
-      $('.tweet-container').append($tweet);
-    }
+//adds tweets to tweet-container
+const renderTweets = function(tweets) {
+  // loops through tweets
+  $('.tweet-container').empty();
+  for (let x = tweets.length - 1; x >= 0; x--) {
+    
+    const $tweet = createTweetElement(tweets[x]);
+    
+    $('.tweet-container').append($tweet);
   }
+}
 
-
-
+//submits form to tweets and loads tweets to page on submit 
+$(document).ready(()=> {
+  $('form').on('submit', function (event) {
+    event.preventDefault();
+  
+    //obtains value of input v
+    $textfield = $(this).closest("form").find("#tweet-text");
+    $counter = $(this).closest("form").find(".counter");
+    $textdata = $textfield.serialize();
+    $text = $textfield.val().trim();
+  
+    $lengthOfText = $text.length;
+  
+    if ($text === '' || $text === null) {
+      $(".display-hidden").slideDown( "slow" );
+      $(".error").text("Please enter a tweet!");
+    } else if ($lengthOfText > 140) {
+      $( ".display-hidden" ).slideDown( "slow" );
+      $(".error").text("Your tweet exceeded character limit!");
+    } else {
+  
+      $(".display-hidden").hide();
+      $.post("/tweets/", $textdata)
+        .then(() => {
+          console.log('asdf')
+          loadTweets();
+        });
+  
+      $textfield.val('');
+      $counter.text(140);
+  
+    }
+  });
+  
+  loadTweets();
+  
+});
