@@ -15,3 +15,11 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots
+
+!["App below desktop width"](https://github.com/kvnchu2/tweeter/blob/master/docs/belowDesktopWidth.png?raw=true)
+
+!["App at desktop width"](https://github.com/kvnchu2/tweeter/blob/master/docs/desktopWidth.png?raw=true)
+
+!["Error message"](https://github.com/kvnchu2/tweeter/blob/master/docs/errorMessage.png?raw=true)
