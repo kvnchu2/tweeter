@@ -93,6 +93,14 @@ article:hover header .twitter-user p{
   visibility: visible;
 }
 
+.tweet-icons i{
+  visibility: hidden;
+}
+
+article:hover footer .tweet-icons i{
+  visibility: visible;
+}
+
 article:hover {
   box-shadow: 5px 10px rgb(155, 154, 154);
 }
