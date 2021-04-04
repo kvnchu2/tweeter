@@ -1,4 +1,4 @@
-//function that requests for tweets 
+//function that requests for tweets
 const loadTweets = () => {
   $.getJSON("/tweets")
     .done(function (tweets) {
@@ -9,13 +9,13 @@ const loadTweets = () => {
 //adds html with information from tweet
 const createTweetElement = function(tweet) {
   const currentTime = new Date();
-  const dateOfTweet = new Date(parseInt(tweet.created_at))
+  const dateOfTweet = new Date(parseInt(tweet.created_at));
   let timeDiff = Math.floor((currentTime - dateOfTweet) / 86400000);
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
   return `<article class="tweet-article">
           <header class="tweet-header">
             <div class="avatar-name">
@@ -37,8 +37,8 @@ const createTweetElement = function(tweet) {
               <i class="fas fa-heart"></i>
             </div>
           </footer>
-  </article>`
-}
+  </article>`;
+};
 
 //adds tweets to tweet-container
 const renderTweets = function(tweets) {
@@ -50,9 +50,9 @@ const renderTweets = function(tweets) {
     
     $('.tweet-container').append($tweet);
   }
-}
+};
 //submits form to tweets and loads tweets to page on submit
-$('form').on('submit', function (event) {
+$('form#tweet-form').on('submit', function(event) {
   event.preventDefault();
 
   //obtains input of textfield
@@ -67,10 +67,10 @@ $('form').on('submit', function (event) {
   
   //if no characters written, or number of characters exceeds limit, error message. otherwise, tweet is rendered and sent
   if ($text === '' || $text === null) {
-    $(".display-hidden").slideDown( "slow" );
+    $(".display-hidden").slideDown("slow");
     $(".error").text("Please enter a tweet!");
   } else if ($lengthOfText > 140) {
-    $(".display-hidden").slideDown( "slow" );
+    $(".display-hidden").slideDown("slow");
     $(".error").text("Your tweet exceeded character limit!");
   } else {
 
@@ -84,6 +84,17 @@ $('form').on('submit', function (event) {
     $counter.text(140);
 
   }
+});
+
+$('div.write').on('click', function(event) {
+  if($(".display-hidden-tweet").is(":hidden")) {
+    $(".display-hidden-tweet").slideDown("slow");
+  } else {
+    $(".display-hidden-tweet").hide();
+    $(".display-hidden").hide();
+  }
+
+
 });
 
 //waits for document to load before adding in tweets

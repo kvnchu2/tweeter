@@ -20,6 +20,10 @@
   margin-top: 30px;
 }
 
+.display-hidden-tweet{
+  display:none;
+}
+
 #tweet-form {
   display: flex;
   flex-direction: column;
