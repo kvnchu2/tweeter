@@ -86,9 +86,11 @@ $('form#tweet-form').on('submit', function(event) {
   }
 });
 
-$('div.write').on('click', function(event) {
+$('div.write span').on('click', function(event) {
   if($(".display-hidden-tweet").is(":hidden")) {
     $(".display-hidden-tweet").slideDown("slow");
+    $("#tweet-text").focus();
+    $("#tweet-text").trigger("click");
   } else {
     $(".display-hidden-tweet").hide();
     $(".display-hidden").hide();
