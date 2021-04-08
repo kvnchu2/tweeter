@@ -139,6 +139,22 @@ article footer {
   padding-left: 4px;
 }
 
+/* scroll button */
+
+.scroll-button .fas {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+}
+
+.scroll-button i:hover {
+  cursor: pointer;
+  transform: scale(1.3);
+}
 
 @media only screen and (min-width: 1024px) {
   main.container {
@@ -151,5 +167,4 @@ article footer {
     display: flex;
     justify-content: space-around;
   }
-
 }
