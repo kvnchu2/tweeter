@@ -99,13 +99,17 @@ $('div.write span').on('click', function(event) {
 
 $(window).scroll(function() {
   $("#scroll-icon").show();
+  $("div.write").hide();
 });
 
 $("#scroll-icon").click(function() {
-  $("html, body").animate({scrollTop: 0}, function() {$("#scroll-icon").hide();
-    $(".display-hidden-tweet").slideDown("slow");
-    $("#tweet-text").focus();
-    $("#tweet-text").trigger("click"); });
+  $("html, body").animate({scrollTop: 0}, 
+    function() {$("#scroll-icon").hide();
+      $(".display-hidden-tweet").slideDown("slow");
+      $("#tweet-text").focus();
+      $("#tweet-text").trigger("click");
+      $("div.write").show();
+  });
 });
 
 //waits for document to load before adding in tweets
