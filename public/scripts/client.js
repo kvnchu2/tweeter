@@ -103,9 +103,10 @@ $(window).scroll(function() {
 
 $("#scroll-icon").click(function() {
   $("html, body").animate({scrollTop: 0}, function() {$("#scroll-icon").hide();
-  $('div.write span').click() });
+    $(".display-hidden-tweet").slideDown("slow");
+    $("#tweet-text").focus();
+    $("#tweet-text").trigger("click"); });
 });
-
 
 //waits for document to load before adding in tweets
 $(document).ready(()=> {
