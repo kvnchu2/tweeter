@@ -95,9 +95,17 @@ $('div.write span').on('click', function(event) {
     $(".display-hidden-tweet").hide();
     $(".display-hidden").hide();
   }
-
-
 });
+
+$(window).scroll(function() {
+  $("#scroll-icon").show();
+});
+
+$("#scroll-icon").click(function() {
+  $("html, body").animate({scrollTop: 0}, function() {$("#scroll-icon").hide();
+  $('div.write span').click() });
+});
+
 
 //waits for document to load before adding in tweets
 $(document).ready(()=> {
